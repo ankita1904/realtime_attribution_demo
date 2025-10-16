@@ -1,0 +1,28 @@
+name: 'ankita_realtime_attribution'      # 👈 your project name (must match your profile name)
+version: '1.0.0'                         # project version
+config-version: 2                        # required in dbt v1.x+
+profile: 'ankita_realtime_attribution'   # 👈 must match name in profiles.yml
+
+# Paths where dbt looks for models, seeds, macros, tests, etc.
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# Directories to clean when you run `dbt clean`
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Default configs for models
+models:
+  ankita_realtime_attribution:
+    +materialized: view        # default materialization for models in this project
+    staging:
+      +materialized: view      # models in 'models/staging' folder will be views
+    marts:
+      +materialized: table     # models in 'models/marts' folder will be tables
+
+
