@@ -27,7 +27,11 @@ It implements **First-Click** and **Last-Click Attribution** models with a **30-
 **Streaming Layer**
 
 - Python script `stream_demo.py`
-- Streams real-time events into BigQuery table `stream_events`
+- Streaming Demo:
+This project includes a lightweight Python script (stream_demo.py) that generates 10–20 synthetic GA4-style events and loads them into the BigQuery table demo_attribution.stream_events.
+Because of BigQuery Sandbox disables streaming inserts, the demo uses the free Load Job API (load_table_from_json) to batch-load events instead of the Streaming API.
+Each record has a unique event_id used as the insertId and as the unique_key in dbt, ensuring deduplication and idempotent materialization when the job reruns.
+Events appear in BigQuery within 10–20 seconds.
 
 **Visualization**
 
