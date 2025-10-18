@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: ga4_public
+    description: "Google Analytics 4 public ecommerce sample dataset from Google"
+    database: bigquery-public-data
+    schema: ga4_obfuscated_sample_ecommerce
+    tables:
+      - name: events_*
+        description: "Wildcard table covering GA4 events data for multiple dates"
